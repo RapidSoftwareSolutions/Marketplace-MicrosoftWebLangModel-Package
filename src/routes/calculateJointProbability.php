@@ -12,8 +12,8 @@ $app->post('/api/MicrosoftWebLangModel/calculateJointProbability', function ($re
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['key'=>'key','model'=>'model'];
-    $optionalParams = ['order'=>'order','body'=>'body'];
+    $requiredParams = ['key'=>'key','model'=>'model','body'=>'body'];
+    $optionalParams = ['order'=>'order'];
     $bodyParams = [
        'query' => ['model','order']
     ];
