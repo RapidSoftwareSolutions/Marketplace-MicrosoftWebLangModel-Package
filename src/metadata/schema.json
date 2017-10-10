@@ -66,7 +66,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "\/calculateConditionalProbability",
+                "url": "https://westus.api.cognitive.microsoft.com/text/weblm/v1.0/calculateConditionalProbability",
                 "method": "post",
                 "requestParameters": [
                     {
@@ -132,7 +132,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "\/calculateJointProbability",
+                "url": "https://westus.api.cognitive.microsoft.com/text/weblm/v1.0/calculateJointProbability",
                 "method": "post",
                 "requestParameters": [
                     {
@@ -209,7 +209,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "\/generateNextWords",
+                "url": "https://westus.api.cognitive.microsoft.com/text/weblm/v1.0/generateNextWords",
                 "method": "post",
                 "requestParameters": [
                     {
@@ -277,7 +277,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "\/breakIntoWords",
+                "url": "https://westus.api.cognitive.microsoft.com/text/weblm/v1.0/breakIntoWords",
                 "method": "post",
                 "requestParameters": [
                     {
@@ -308,7 +308,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "\/models",
+                "url": "https://westus.api.cognitive.microsoft.com/text/weblm/v1.0/models",
                 "method": "get",
                 "headers": {
                     "Ocp-Apim-Subscription-Key": "{$data['key']}",
