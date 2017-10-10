@@ -62,7 +62,7 @@
                     "name": "body",
                     "type": "JSON",
                     "info": "Query object",
-                    "required": false
+                    "required": true
                 }
             ],
             "vendorRequest": {
@@ -128,7 +128,7 @@
                     "name": "body",
                     "type": "JSON",
                     "info": "Query object",
-                    "required": false
+                    "required": true
                 }
             ],
             "vendorRequest": {
