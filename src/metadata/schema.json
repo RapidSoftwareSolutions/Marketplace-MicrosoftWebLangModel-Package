@@ -1,0 +1,320 @@
+{
+    "package": "MicrosoftWebLangModel",
+    "tagline": "MicrosoftWebLangModel API",
+    "description": "Automate a variety of standard natural language processing tasks using state-of-the-art language modeling APIs",
+    "image": "https:\/\/logo.clearbit.com\/bing.microsoft.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-MicrosoftWebLangModel-Package",
+    "keywords": [
+        "API",
+        "search",
+        "lang",
+        "langmodel",
+        "microsoft"
+    ],
+    "accounts": {
+        "domain": "https:\/\/azure.microsoft.com\/en-us\/services\/cognitive-services\/web-language-model\/",
+        "credentials": [
+            "key"
+        ]
+    },
+    "steps": [
+        "Sign in https://azure.microsoft.com/en-us/services/cognitive-services/web-language-model/",
+        "Click create button.",
+        "Navigate to Keys - tab."
+    ],
+    "blocks": [
+        {
+            "name": "calculateConditionalProbability",
+            "description": "Calculate the conditional probability that a particular word will follow a given sequence of words.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. ",
+                    "required": true
+                },
+                {
+                    "name": "model",
+                    "type": "Select",
+                    "options": [
+                        "title",
+                        "anchor",
+                        "query",
+                        "body"
+                    ],
+                    "info": "Which model to use, supported value: title\/anchor\/query\/body",
+                    "required": true
+                },
+                {
+                    "name": "order",
+                    "type": "Select",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "info": "The order of N-gram. If not specified, use default value 5 .Supported value: 1, 2, 3, 4, 5. ",
+                    "required": false
+                },
+                {
+                    "name": "body",
+                    "type": "JSON",
+                    "info": "Query object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "\/calculateConditionalProbability",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "model",
+                            "order"
+                        ]
+                    },
+                    {
+                        "type": "body",
+                        "parameters": [
+                            "body"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['key']}",
+                    "Content-Type ": "application\/json"
+                }
+            }
+        },
+        {
+            "name": "calculateJointProbability",
+            "description": "Calculate the joint probability that a particular sequence of words will appear together.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. ",
+                    "required": true
+                },
+                {
+                    "name": "model",
+                    "type": "Select",
+                    "options": [
+                        "title",
+                        "anchor",
+                        "query",
+                        "body"
+                    ],
+                    "info": "Which model to use, supported value: title\/anchor\/query\/body",
+                    "required": true
+                },
+                {
+                    "name": "order",
+                    "type": "Select",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "info": "The order of N-gram. If not specified, use default value 5 .Supported value: 1, 2, 3, 4, 5. ",
+                    "required": false
+                },
+                {
+                    "name": "body",
+                    "type": "JSON",
+                    "info": "Query object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "\/calculateJointProbability",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "model",
+                            "order"
+                        ]
+                    },
+                    {
+                        "type": "body",
+                        "parameters": [
+                            "body"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['key']}",
+                    "Content-Type ": "application\/json"
+                }
+            }
+        },
+        {
+            "name": "generateNextWords",
+            "description": "Get the list of words (completions) most likely to follow a given sequence of words.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. ",
+                    "required": true
+                },
+                {
+                    "name": "model",
+                    "type": "Select",
+                    "options": [
+                        "title",
+                        "anchor",
+                        "query",
+                        "body"
+                    ],
+                    "info": "Which model to use, supported value: title\/anchor\/query\/body",
+                    "required": true
+                },
+                {
+                    "name": "words",
+                    "type": "List",
+                    "info": "Words from which to generate the list of words likely to follow. The words should be separated by spaces.",
+                    "required": true,
+                    "structure": {
+                        "name": "word",
+                        "type": "String",
+                        "info": "Single word"
+                    }
+                },
+                {
+                    "name": "order",
+                    "type": "Select",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "info": "The order of N-gram. If not specified, use default value 5 .Supported value: 1, 2, 3, 4, 5. ",
+                    "required": false
+                },
+                {
+                    "name": "maxNumOfCandidatesReturned",
+                    "type": "Number",
+                    "info": "Max number of candidates would be returned. If not specified, use default value 5.\u00a0",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "\/generateNextWords",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "model",
+                            "words",
+                            "order",
+                            "maxNumOfCandidatesReturned"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['key']}",
+                    "Content-Type ": "application\/json"
+                }
+            }
+        },
+        {
+            "name": "breakIntoWords",
+            "description": "Insert spaces into a string of words lacking spaces, like a hashtag or part of a URL. Punctuation or exotic characters can prevent a string from being broken, so it\u2019s best to limit input strings to lower-case, alpha-numeric characters.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. ",
+                    "required": true
+                },
+                {
+                    "name": "model",
+                    "type": "Select",
+                    "options": [
+                        "title",
+                        "anchor",
+                        "query",
+                        "body"
+                    ],
+                    "info": "Which model to use, supported value: title\/anchor\/query\/body",
+                    "required": true
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "The line of text to break into words. If spaces are present, they will be interpreted as hard breaks and maintained, except for leading or trailing spaces, which will be trimmed.",
+                    "required": true
+                },
+                {
+                    "name": "order",
+                    "type": "Select",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "info": "The order of N-gram. If not specified, use default value 5 .Supported value: 1, 2, 3, 4, 5. ",
+                    "required": false
+                },
+                {
+                    "name": "maxNumOfCandidatesReturned",
+                    "type": "Number",
+                    "info": "Max number of candidates would be returned. If not specified, use default value 5.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "\/breakIntoWords",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "model",
+                            "text",
+                            "order",
+                            "maxNumOfCandidatesReturned"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['key']}",
+                    "Content-Type ": "application\/json"
+                }
+            }
+        },
+        {
+            "name": "listAvailableModels",
+            "description": "List models available currently.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Subscription key which provides access to this API. ",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "\/models",
+                "method": "get",
+                "headers": {
+                    "Ocp-Apim-Subscription-Key": "{$data['key']}",
+                    "Content-Type ": "application\/json"
+                }
+            }
+        }
+    ]
+}
